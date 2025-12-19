@@ -1,0 +1,18 @@
+name: Upload Theme to HubSpot
+
+on:
+  push:
+    branches: [ preview ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: HubSpot Deploy Action
+        uses: HubSpot/hubspot-cms-deploy-action@v2.0.1
+        with:
+          src_dir: .
+          dest_dir: preview-cms-theme-boilerplate-child
+          account_id: ${{ secrets.HUBSPOT_ACCOUNT_ID }}
+          personal_access_key: ${{ secrets.HUBSPOT_PERSONAL_ACCESS_KEY }}
