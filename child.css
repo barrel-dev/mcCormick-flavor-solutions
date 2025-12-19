@@ -1,0 +1,4 @@
+.dnd-section > .row-fluid,
+.content-wrapper {
+  max-width: 900px;
+}
