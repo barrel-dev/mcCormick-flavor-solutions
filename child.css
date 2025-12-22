@@ -1,4 +1,10 @@
-.dnd-section > .row-fluid,
-.content-wrapper {
-  max-width: 900px;
-}
+/* @import url('http://example.com/example_style.css'); */
+
+/***********************************************/
+/* CSS @imports must be at the top of the file */
+/* Add them above this section                 */
+/***********************************************/
+
+/*****************************************/
+/* Start your style declarations here    */
+/*****************************************/

@@ -13,6 +13,6 @@ jobs:
         uses: HubSpot/hubspot-cms-deploy-action@v2.0.1
         with:
           src_dir: .
-          dest_dir: preview-cms-theme-boilerplate-child
+          dest_dir: power-theme-child
           account_id: ${{ secrets.HUBSPOT_ACCOUNT_ID }}
           personal_access_key: ${{ secrets.HUBSPOT_PERSONAL_ACCESS_KEY }}

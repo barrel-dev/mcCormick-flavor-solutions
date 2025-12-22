@@ -1,0 +1,13 @@
+{
+  "name": "mccormick-flavor-solutions",
+  "version": "1.0.0",
+  "main": "child.js",
+  "scripts": {
+    "dev": "hs cms watch . power-theme-child",
+    "upload": "hs cms upload . power-theme-child",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
