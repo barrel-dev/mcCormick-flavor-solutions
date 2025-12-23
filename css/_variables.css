@@ -854,7 +854,7 @@
     --lo-header-shift-left:             {{ theme.layout.header_menu_pos + '%' }};
 
     {# Content width in pixel #}
-    --lo-content-width:                 {{ theme.layout.content_width + 'px' }};
+    --lo-content-width: 95vw;
 
     {# Content width for blog post #}
     --lo-content-width-blog-post: {% if theme.blog.blog_post.blog_post_content_width=="default" %} 795px; {% elif theme.blog.blog_post.blog_post_content_width=="web_default" %} {{ theme.layout.content_width + 'px' }}; {% elif theme.blog.blog_post.blog_post_content_width=="custom" %} {{ theme.blog.blog_post.blog_post_content_width_custom +'px' }}; {% endif %}
