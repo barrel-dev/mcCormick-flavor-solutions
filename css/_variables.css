@@ -1,0 +1,1076 @@
+{#*******************************************#}
+{# =^..^= =^..^= =^..^= =^..^= =^..^= =^..^= #}
+{#                                           #}
+{# Hubspot POWER THEME                       #}
+{# by maka Ageny                             #}
+{#                                           #}
+{# THEME SETTINGS => CSS VARIABLES           #}
+{#                                           #}
+{# =^..^= =^..^= =^..^= =^..^= =^..^= =^..^= #}
+{#*******************************************#}
+
+{#**************************************************************************#}
+{#                                                                          #}
+{# With this file we provide you with comfortable options to adjust         #}
+{# some global style aspects of the POWER theme to your needs.              #}
+{#                                                                          #}
+{# By default the theme settings are pulled into this file and get          #}
+{# assigned to CSS variables. You can change and extend this by             #}
+{# overwriting the CSS variables                                            #}
+{#                                                                          #}
+{#**************************************************************************#}
+
+{##
+    INDEX:
+
+    1.1 BASIC COLOR DEFINITIONS                              #bcd
+
+    1.2 SPECIFIC COLOR DEFINITIONS                           #scd
+        - Background
+        - Accent Background  
+        - Text
+        - Titles
+        - Links
+        - Buttons
+        - Navigation
+        - Social Icons & Form Errors
+
+    1.3 FONT-SETTINGS                                        #fs
+        - Basic and accent font types
+        - Font sizes
+        - Font weights
+        - Line heights
+        - Letter spacing
+
+    1.4 ROUND EDGES                                          #re
+
+    1.5 LAYOUT                                               #lay
+        - Main header menu position
+        - Content width
+        - Section padding
+        - Responsive breakpoints
+        - Mobile responsiveness size reduction factors
+
+    1.6 STYLING                                              #sty
+
+##}
+
+:root {
+
+    {# ==========================================================================
+       1.1 BASIC COLOR DEFINITIONS                               #bcd
+
+       These colors are used throughout the POWER template.
+    ========================================================================== #}
+
+    {# This color represents e.g. background color for dark-mode, dark text color, 
+    * is base for dark borders, ... 
+    #}
+    --clr-base-dk:                      {{ theme.colors.brand_colors.base_color_dark.color }};
+    --clr-base-dk-rgb:                  {{ theme.colors.brand_colors.base_color_dark.color | convert_rgb }};
+
+    {# This color represents e.g. dark accent background color for boxes in front 
+    * of dark background (baseColorDark) 
+    #}
+    --clr-accent-dk:                    {{ theme.colors.brand_colors.accent_color_dark.color }};
+
+    {# This color represents e.g. background color for light-mode, 
+    * light text color, is base for light borders, ... 
+    #}
+    --clr-base-lt:                      {{ theme.colors.brand_colors.base_color_light.color }};
+    --clr-base-lt-rgb:                  {{ theme.colors.brand_colors.base_color_light.color | convert_rgb }};
+
+    {# This color represents e.g. light accent background color for boxes in 
+    * front of light background (baseColorLight) 
+    #}
+    --clr-accent-lt:                    {{ theme.colors.brand_colors.accent_color_light.color }};
+
+    {# This color represents your primary brand color, e.g. 
+    * Accents / Hightlights, Hovers, Buttons, ... 
+    #}
+    --clr-primary:                      {{ theme.colors.brand_colors.primary_color.color }};
+    --clr-primary-rgb:                  {{ theme.colors.brand_colors.primary_color.color | convert_rgb }};
+
+
+    {# ==========================================================================
+       1.2 SPECIFIC COLOR DEFINITIONS                            #scd
+
+       In this section you have the possibility to set more specific colors for
+       common elements like text, titles, buttons, etc.
+    ========================================================================== #}
+
+    {# Background Colors #}
+    --clr-background-html:              {{ theme.colors.hs.html.background.background_color.color }};
+
+    --clr-background-dk:                {{ theme.colors.power.dark_scheme.background.background_color.color }};
+    --clr-background-dk-rgb:            {{ theme.colors.power.dark_scheme.background.background_color.color | convert_rgb }};
+    --clr-background-lt:                {{ theme.colors.power.light_scheme.background.background_color.color }};
+    --clr-background-lt-rgb:            {{ theme.colors.power.light_scheme.background.background_color.color | convert_rgb }};
+
+    {# Dark / Light accent background colors #}
+    --clr-background-accent-dk:         {{ theme.colors.power.dark_scheme.background.background_accent_color.color }};
+    --clr-background-accent-dk-rgb:     {{ theme.colors.power.dark_scheme.background.background_accent_color.color | convert_rgb }};
+    --clr-background-accent-lt:         {{ theme.colors.power.light_scheme.background.background_accent_color.color }};
+    --clr-background-accent-lt-rgb:     {{ theme.colors.power.light_scheme.background.background_accent_color.color | convert_rgb }};
+
+    {# Dark / Light text colors #}
+    --clr-text-dk:                      {{ theme.colors.power.dark_scheme.text.text_color.color }};
+    --clr-text-dk-rgb:                  {{ theme.colors.power.dark_scheme.text.text_color.color | convert_rgb }};
+    --clr-text-lt:                      {{ theme.colors.power.light_scheme.text.text_color.color }};
+    --clr-text-lt-rgb:                  {{ theme.colors.power.light_scheme.text.text_color.color | convert_rgb }};
+
+    {# Dark / Light intro title and title colors 
+    * For section intro + title, hero title, author page posts title and 
+    * blog overview (layout: 1 column)                                           
+    #}
+    --clr-intro-title-dk:               {{ theme.colors.power.dark_scheme.titles.intro_title_color.color }};
+    --clr-intro-title-lt:               {{ theme.colors.power.light_scheme.titles.intro_title_color.color }};
+    --clr-title-dk:                     {{ theme.colors.power.dark_scheme.titles.title_color.color }};
+    --clr-title-lt:                     {{ theme.colors.power.light_scheme.titles.title_color.color }};
+
+    {# Link-Colors #}
+    --clr-link-html:                    {{ theme.styling.links.regular.colors.html.link_color.color }};
+    --clr-link-hover-html:              {{ theme.styling.links.hover.colors.html.link_color.color }};
+
+    --clr-link-html-bg:                 {{ theme.styling.links.regular.colors.html.bg_color.css|default('transparent',true) }};
+    --clr-link-hover-html-bg:           {{ theme.styling.links.hover.colors.html.bg_color.css|default('transparent',true) }};
+
+    --fw-link:                          {{ theme.styling.links.regular.font_weight }};
+    --fw-link-hover:                    {{ theme.styling.links.hover.font_weight}};
+
+    --deco-link:                        {{ theme.styling.links.regular.text_decoration }} {{ theme.styling.links.regular.text_decoration_thickness }}px;
+    --deco-link-hover:                  {{ theme.styling.links.hover.text_decoration }} {{ theme.styling.links.hover.text_decoration_thickness }}px;
+    
+    --clr-link-html-deco:               {{ theme.styling.links.regular.colors.html.text_decoration_color.css|default('transparent',true) }};
+    --clr-link-hover-html-deco:         {{ theme.styling.links.hover.colors.html.text_decoration_color.css|default('transparent',true) }};
+
+    {# Dark / Light Link-Colors for POWER rich-text fields #}
+    --clr-link-dk:                      {{ theme.styling.links.regular.colors.dark_scheme.link_color.color }};
+    --clr-link-lt:                      {{ theme.styling.links.regular.colors.light_scheme.link_color.color}};
+    --clr-link-hover-dk:                {{ theme.styling.links.hover.colors.dark_scheme.link_color.color }};
+    --clr-link-hover-lt:                {{ theme.styling.links.hover.colors.light_scheme.link_color.color }};
+
+    --clr-link-dk-bg:                   {{ theme.styling.links.regular.colors.dark_scheme.bg_color.css|default('transparent',true) }};
+    --clr-link-lt-bg:                   {{ theme.styling.links.regular.colors.light_scheme.bg_color.css|default('transparent',true) }};
+    --clr-link-hover-dk-bg:             {{ theme.styling.links.hover.colors.dark_scheme.bg_color.css|default('transparent',true) }};
+    --clr-link-hover-lt-bg:             {{ theme.styling.links.hover.colors.light_scheme.bg_color.css|default('transparent',true) }};
+
+    --clr-link-dk-deco:                   {{ theme.styling.links.regular.colors.dark_scheme.text_decoration_color.css|default('transparent',true) }};
+    --clr-link-lt-deco:                   {{ theme.styling.links.regular.colors.light_scheme.text_decoration_color.css|default('transparent',true) }};
+    --clr-link-hover-dk-deco:             {{ theme.styling.links.hover.colors.dark_scheme.text_decoration_color.css|default('transparent',true) }};
+    --clr-link-hover-lt-deco:             {{ theme.styling.links.hover.colors.light_scheme.text_decoration_color.css|default('transparent',true) }};
+
+
+    {# Primary / Dark / Light button background + text colors #}
+    --clr-btn-primary:                  {{ theme.colors.power.ctas.btn_color_primary.color }};
+    --clr-btn-primary-rgb:              {{ theme.colors.power.ctas.btn_color_primary.color | convert_rgb }};
+    --clr-btn-dk:                       {{ theme.colors.power.ctas.btn_color_dark.color }};
+    --clr-btn-lt:                       {{ theme.colors.power.ctas.btn_color_light.color }};
+    --clr-btn-txt-dk:                   {{ theme.colors.power.ctas.btn_text_color_dark.color }};
+    --clr-btn-txt-lt:                   {{ theme.colors.power.ctas.btn_text_color_light.color }};
+
+    --clr-btn-background-hs:            {{ theme.colors.hs.forms.submit_btn.background_color.color }};
+    --clr-btn-hover-background-hs:      {{ theme.colors.hs.forms.submit_btn.background_color_hover.color }};
+    --clr-btn-txt-hs:                   {{ theme.colors.hs.forms.submit_btn.text_color.color }};
+    --clr-btn-hover-txt-hs:             {{ theme.colors.hs.forms.submit_btn.text_color_hover.color }};
+
+    {# Dark / Light font color for navigation (Header / Footer) #}
+    --clr-txt-nav-dk:                   {{ theme.colors.power.navigation.nav_font_color_dark.color }};
+    --clr-txt-nav-dk-rgb:               {{ theme.colors.power.navigation.nav_font_color_dark.color | convert_rgb }};
+    --clr-txt-nav-lt:                   {{ theme.colors.power.navigation.nav_font_color_light.color }};
+    --clr-txt-nav-lt-rgb:               {{ theme.colors.power.navigation.nav_font_color_light.color | convert_rgb }};
+    {# Hover opacity value for top-level navigation items (0 invisible, 1 fully visible) #}
+    --opc-nav-hover:                    .75;
+    --opc-footer-hover:                 .8;
+    {# Hover background and font color for sub-level menu items (Dropdown, Mega-Menu, Burger-Menu) #}
+    --clr-nav-hover-background:         {{ theme.colors.power.navigation.nav_hover_background_color.color }};
+    --clr-nav-hover-txt:                {{ theme.colors.power.navigation.nav_hover_font_color.color }};
+
+    {# Boxed Elements Hover Colors #}
+    --clr-hover-box-txt:                {{ theme.colors.power.boxed_elements.hover_text_color.color }};
+    --clr-hover-box-background:         {{ theme.colors.power.boxed_elements.hover_background_color.color }};
+
+    {# Social Icon color used for Header Top (light), Author Page, Media Content Split module #}
+    --clr-icon-social-lt:               {{ theme.colors.power.light_scheme.other.social_icon_color.color }};
+
+    {# Colors for HubSpot's form module #}
+    --clr-form-title-background-hs-rgba:    {{ theme.colors.hs.forms.title_background_color.css }};
+    --clr-form-title-hs:                {{ theme.colors.hs.forms.title_text_color.color }};
+    --clr-form-background-hs-rgba:      {{ theme.colors.hs.forms.background_color.css }};
+    --clr-form-border-hs-rgba:          {{ theme.colors.hs.forms.border_color.css }};
+    --clr-form-label-hs:                {{ theme.colors.hs.forms.label_color.color }};
+    --clr-form-field-border-hs-rgba:    {{ theme.colors.hs.forms.field_border_color.css }};
+    --clr-form-error:                   {{ theme.colors.hs.forms.error_color.color }};
+
+    {# Colors for POWER's form modules #}
+    --clr-form-label-dk:                {{ theme.colors.power.dark_scheme.forms.label_color.color }};
+    --clr-form-label-lt:                {{ theme.colors.power.light_scheme.forms.label_color.color }};
+    --clr-form-field-border-dk-rgba:    {{ theme.colors.power.dark_scheme.forms.field_border_color.css }};
+    --clr-form-field-border-dk:         {{ theme.colors.power.dark_scheme.forms.field_border_color.color }};
+    --clr-form-field-border-lt-rgba:    {{ theme.colors.power.light_scheme.forms.field_border_color.css }};
+    --clr-form-field-border-lt:         {{ theme.colors.power.light_scheme.forms.field_border_color.color }};
+    --clr-form-error-dk:                {{ theme.colors.power.dark_scheme.forms.error_color.color }};
+    --clr-form-error-lt:                {{ theme.colors.power.light_scheme.forms.error_color.color }};
+
+    {# Blog #}
+    --clr-blog-listing-background:      {{ theme.colors.power.blog.blog_listing.background.color }};
+    --clr-blog-post-background:         {{ theme.colors.power.blog.blog_post.background.color }};
+    --clr-blog-author-background:       {{ theme.colors.power.blog.blog_author.background.color }};
+
+    {# Blog Post Narration #}
+    --clr-blog-narra-background:        {{ theme.colors.power.blog.blog_post.narration.background.color }};
+    --clr-blog-narra-text:              {{ theme.colors.power.blog.blog_post.narration.text.color }};
+    --clr-blog-narra-highlight:         {{ theme.colors.power.blog.blog_post.narration.highlight.color }};
+
+    {# Text Bullet-Point Colors #}
+    --clr-txt-bullet-dk:                {{ theme.colors.power.dark_scheme.lists.bullet_color.color }};
+    --clr-txt-bullet-lt:                {{ theme.colors.power.light_scheme.lists.bullet_color.color }};
+
+    {# Lightbox Colors #}
+    --clr-background-lightbox-rgba:     {{ theme.colors.power.lightbox.background_color.css }};
+
+    {# Focus Color #}
+    --clr-keyboard-focus: {{ theme.a11y.focus.outline_color.css }};
+
+    {# ==========================================================================
+       1.3 FONT AND FONT-SIZES                                  #fs
+    ========================================================================== #}
+
+    {% set fallbackFF = 'Arial' %}
+    {# Font family - Base Font - Use baseFontFamily to account for custom fonts configured in _pwr-style-settings.css for child themes #}
+    --ff-base:                          "{{ baseFontFamily|replace('family=','')|default(theme.typography.fonts.base_font.font_family.font) }}", {{ fallbackFF }};
+    {# Font-family - Accent Fon - Use accentFontFamily to account for custom fonts configured in _pwr-style-settings.css for child themest #}
+    --ff-accent:                        "{{ accentFontFamily|replace('family=','')|default(theme.typography.fonts.accent_font.font_family.font) }}", {{ fallbackFF }};
+
+    {# Font family used in the body and in rich-text fields #}
+    --ff-text:                          var({{ theme.typography.font_settings.body_.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    {# Font family used for paragraphs in the body and in rich-text fields #}
+    --ff-paragraph:                     var({{ theme.typography.font_settings.paragraph.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    {# Font family used for UL in the body and in rich-text fields #}
+    --ff-ul:                            var({{ theme.typography.font_settings.ul.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    {# Font family used for OL in the body and in rich-text fields #}
+    --ff-ol:                            var({{ theme.typography.font_settings.ol.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    {# Font family used in the blog post body #}
+    --ff-post-body:                     var({{ theme.typography.font_settings.post_body.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    {# Font family for intro title in section modules #}
+    --ff-intro-title-sec:               var({{ theme.typography.font_settings.sec_intro_title.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    {# Font family for text description in section modules #}
+    --ff-desc-sec:                      var({{ theme.typography.font_settings.sec_desc.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    {# Font family for buttons and links #}
+    --ff-btn:                           var({{ theme.typography.font_settings.btns.font_family|default('--ff-accent') }}), {{ fallbackFF }};
+    {# Font family for headings #}
+    --ff-h1:                            var({{ theme.typography.font_settings.heading_one.font_family|default('--ff-accent') }}), {{ fallbackFF }};
+    --ff-h2:                            var({{ theme.typography.font_settings.heading_two.font_family|default('--ff-accent') }}), {{ fallbackFF }};
+    --ff-h3:                            var({{ theme.typography.font_settings.heading_three.font_family|default('--ff-accent') }}), {{ fallbackFF }};
+    --ff-h4:                            var({{ theme.typography.font_settings.heading_four.font_family|default('--ff-accent') }}), {{ fallbackFF }};
+    --ff-h5:                            var({{ theme.typography.font_settings.heading_five.font_family|default('--ff-accent') }}), {{ fallbackFF }};
+    --ff-h6:                            var({{ theme.typography.font_settings.heading_six.font_family|default('--ff-accent') }}), {{ fallbackFF }};
+    {# Font family for header #}
+    --ff-header-top:                    var({{ theme.typography.font_settings.header.top_header.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    --ff-header:                        var({{ theme.typography.font_settings.header.header.font_family|default('--ff-accent') }}), {{ fallbackFF }};
+    --ff-burger:                        var({{ theme.typography.font_settings.header.burger.font_family|default('--ff-accent') }}), {{ fallbackFF }};
+    --ff-mega-menu:                     var({{ theme.typography.font_settings.header.mega_menu.font_family|default('--ff-accent') }}), {{ fallbackFF }};
+    --ff-amm-txt:                       var({{ theme.typography.font_settings.header.amm.text.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    --ff-amm-menu-title:                var({{ theme.typography.font_settings.header.amm.menu_titles.font_family|default('--ff-accent') }}), {{ fallbackFF }};
+    --ff-amm-menu:                      var({{ theme.typography.font_settings.header.amm.menu.font_family|default('--ff-accent') }}), {{ fallbackFF }};
+    --ff-amm-smm:                       var({{ theme.typography.font_settings.header.amm.smm.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    {# Font family for footer #}
+    --ff-footer-txt:                    var({{ theme.typography.font_settings.footer.text.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    --ff-footer-menu-title:             var({{ theme.typography.font_settings.footer.menu_titles.font_family|default('--ff-accent') }}), {{ fallbackFF }};
+    --ff-footer-menu:                   var({{ theme.typography.font_settings.footer.menu.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    --ff-footer-legal:                  var({{ theme.typography.font_settings.footer.legal_text.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    {# Font family for forms #}
+    --ff-form-label:                    var({{ theme.typography.font_settings.form.labels.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    --ff-form-help:                     var({{ theme.typography.font_settings.form.help.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    --ff-form-input:                    var({{ theme.typography.font_settings.form.inputs.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    --ff-form-error:                    var({{ theme.typography.font_settings.form.errors.font_family|default('--ff-base') }}), {{ fallbackFF }};
+    --ff-form-legal-consent:            var({{ theme.typography.font_settings.form.legal_consent.font_family|default('--ff-base') }}), {{ fallbackFF }};
+
+    {#
+    * Font-sizes IN PIXELS (DESKTOP/DEFAULT)
+    #}
+    {% set fontSizeUnit                 = 'px' %}
+    {% macro getCSSFontSizeReduction(base_var) %}
+        max( var(--fs-min), calc( var({{ base_var }}) * var(--fs-reduction-factor) ) )
+    {% endmacro %}
+    {# Font size used in the body and in rich-text fields  #}
+    --fs-base:                          {{ theme.typography.font_settings.body_.font_size.size + fontSizeUnit }};
+    {# Font size used for paragraphs in the body and in rich-text fields  #}
+    --fs-paragraph:                     {{ theme.typography.font_settings.paragraph.font_size.size + fontSizeUnit }};
+    {# Font size used in the blog post body  #}
+    --fs-post-body:                     {{ theme.typography.font_settings.post_body.font_size.size + fontSizeUnit }};
+    {# Font-size for intro title in section modules #}
+    --fs-intro-title-sec:               {{ theme.typography.font_settings.sec_intro_title.font_size.size + fontSizeUnit }};
+    {# Font-size for text description in section modules #}
+    --fs-desc-sec:                      {{ theme.typography.font_settings.sec_desc.font_size.size + fontSizeUnit }};
+    {# Font-size for buttons #}
+    --fs-btn:                           {{ theme.typography.font_settings.btns.font_size.size + fontSizeUnit }};
+    {# Font-sizes for headings #}
+    --fs-h1:                            {{ theme.typography.font_settings.heading_one.font_size.size + fontSizeUnit }};
+    --fs-h2:                            {{ theme.typography.font_settings.heading_two.font_size.size + fontSizeUnit }};
+    --fs-h3:                            {{ theme.typography.font_settings.heading_three.font_size.size + fontSizeUnit }};
+    --fs-h4:                            {{ theme.typography.font_settings.heading_four.font_size.size + fontSizeUnit }};
+    --fs-h5:                            {{ theme.typography.font_settings.heading_five.font_size.size + fontSizeUnit }};
+    --fs-h6:                            {{ theme.typography.font_settings.heading_six.font_size.size + fontSizeUnit }};
+    {# Font-sizes for navigation (header and footer) - we recommend small variations from the default value #}
+    --fs-header-top:                    {{ theme.typography.font_settings.header.top_header.font_size.size + fontSizeUnit }};
+    --fs-header:                        {{ theme.typography.font_settings.header.header.font_size.size + fontSizeUnit }};
+    --fs-burger:                        {{ theme.typography.font_settings.header.burger.font_size.size + fontSizeUnit }};
+    --fs-mega-menu:                     {{ theme.typography.font_settings.header.mega_menu.font_size.size + fontSizeUnit }};
+    --fs-amm-txt:                       {{ theme.typography.font_settings.header.amm.text.font_size.size + fontSizeUnit }};
+    --fs-amm-menu-title:                {{ theme.typography.font_settings.header.amm.menu_titles.font_size.size + fontSizeUnit }};
+    --fs-amm-menu:                      {{ theme.typography.font_settings.header.amm.menu.font_size.size + fontSizeUnit }};
+    --fs-amm-menu-sub:                  {{ (theme.typography.font_settings.header.amm.menu.font_size.size - 1) + fontSizeUnit }};
+    --fs-amm-smm:                       {{ theme.typography.font_settings.header.amm.smm.font_size.size + fontSizeUnit }};
+
+    --fs-footer-txt:                    {{ theme.typography.font_settings.footer.text.font_size.size + fontSizeUnit }};
+    --fs-footer-menu-title:             {{ theme.typography.font_settings.footer.menu_titles.font_size.size + fontSizeUnit }};
+    --fs-footer-menu:                   {{ theme.typography.font_settings.footer.menu.font_size.size + fontSizeUnit }};
+    --fs-footer-legal:                  {{ theme.typography.font_settings.footer.legal_text.font_size.size + fontSizeUnit }};
+    {# Font-size for forms #}
+    --fs-form-label:                    {{ theme.typography.font_settings.form.labels.font_size.size + fontSizeUnit }};
+    --fs-form-help:                     {{ theme.typography.font_settings.form.help.font_size.size + fontSizeUnit }};
+    --fs-form-input:                    {{ theme.typography.font_settings.form.inputs.font_size.size + fontSizeUnit }};
+    --fs-form-error:                    {{ theme.typography.font_settings.form.errors.font_size.size + fontSizeUnit }};
+    --fs-form-legal-consent:            {{ theme.typography.font_settings.form.legal_consent.font_size.size + fontSizeUnit }};
+
+
+    {#
+    * Font-sizes IN PIXELS (TABLET)
+    #}
+    {# Font size used in the body and in rich-text fields  #}
+    {% set varTmp                       = getCSSFontSizeReduction('--fs-base') if !theme.typography.font_settings.body_.overwrite_font_styles else theme.typography.font_settings.body_.font_size_tablet + fontSizeUnit %}
+    --fs-base-tablet:                   {{ varTmp }};
+    {# Font size used for paragraphs in the body and in rich-text fields  #}
+    {% set varTmp                       = getCSSFontSizeReduction('--fs-paragraph') if !theme.typography.font_settings.paragraph.overwrite_font_styles else theme.typography.font_settings.paragraph.font_size_tablet + fontSizeUnit %}
+    --fs-paragraph-tablet:              {{ varTmp }};
+    {# Font size used in the blog post body  #}
+    {% set varTmp                       = getCSSFontSizeReduction('--fs-post-body') if !theme.typography.font_settings.post_body.overwrite_font_styles else theme.typography.font_settings.post_body.font_size_tablet + fontSizeUnit %}
+    --fs-post-body-tablet:              {{ varTmp }};
+    {# Font-size for intro title in section modules #}
+    {% set varTmp                       = getCSSFontSizeReduction('--fs-intro-title-sec') if !theme.typography.font_settings.sec_intro_title.overwrite_font_styles else theme.typography.font_settings.sec_intro_title.font_size_tablet + fontSizeUnit %}
+    --fs-intro-title-sec-tablet:        {{ varTmp }};
+    {# Font-size for text description in section modules #}
+    {% set varTmp                       = getCSSFontSizeReduction('--fs-desc-sec') if !theme.typography.font_settings.sec_desc.overwrite_font_styles else theme.typography.font_settings.sec_desc.font_size_tablet + fontSizeUnit %}
+    --fs-desc-sec-tablet:               {{ varTmp }};
+    {# Font-size for buttons #}
+    {% set varTmp                       = 'var(--fs-btn)' if !theme.typography.font_settings.btns.overwrite_font_styles else theme.typography.font_settings.btns.font_size_tablet + fontSizeUnit %}
+    --fs-btn-tablet:                    {{ varTmp }};
+    {# Font-sizes for headings #}
+    {% set varTmp                       = getCSSFontSizeReduction('--fs-h1') if !theme.typography.font_settings.heading_one.overwrite_font_styles else theme.typography.font_settings.heading_one.font_size_tablet + fontSizeUnit %}
+    --fs-h1-tablet:                     {{ varTmp }};
+    {% set varTmp                       = getCSSFontSizeReduction('--fs-h2') if !theme.typography.font_settings.heading_two.overwrite_font_styles else theme.typography.font_settings.heading_two.font_size_tablet + fontSizeUnit %}
+    --fs-h2-tablet:                     {{ varTmp }};
+    {% set varTmp                       = getCSSFontSizeReduction('--fs-h3') if !theme.typography.font_settings.heading_three.overwrite_font_styles else theme.typography.font_settings.heading_three.font_size_tablet + fontSizeUnit %}
+    --fs-h3-tablet:                     {{ varTmp }};
+    {% set varTmp                       = getCSSFontSizeReduction('--fs-h4') if !theme.typography.font_settings.heading_four.overwrite_font_styles else theme.typography.font_settings.heading_four.font_size_tablet + fontSizeUnit %}
+    --fs-h4-tablet:                     {{ varTmp }};
+    {% set varTmp                       = getCSSFontSizeReduction('--fs-h5') if !theme.typography.font_settings.heading_five.overwrite_font_styles else theme.typography.font_settings.heading_five.font_size_tablet + fontSizeUnit %}
+    --fs-h5-tablet:                     {{ varTmp }};
+    {% set varTmp                       = getCSSFontSizeReduction('--fs-h6') if !theme.typography.font_settings.heading_six.overwrite_font_styles else theme.typography.font_settings.heading_six.font_size_tablet + fontSizeUnit %}
+    --fs-h6-tablet:                     {{ varTmp }};
+    {# Font-sizes for navigation (header and footer) - we recommend small variations from the default value #}
+    {% set varTmp                       = 'var(--fs-header-top)' if !theme.typography.font_settings.header.top_header.overwrite_font_styles else theme.typography.font_settings.header.top_header.font_size_tablet + fontSizeUnit %}
+    --fs-header-top-tablet:             {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-header)' if !theme.typography.font_settings.header.header.overwrite_font_styles else theme.typography.font_settings.header.header.font_size_tablet + fontSizeUnit %}
+    --fs-header-tablet:                 {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-burger)' if !theme.typography.font_settings.header.burger.overwrite_font_styles else theme.typography.font_settings.header.burger.font_size_tablet + fontSizeUnit %}
+    --fs-burger-tablet:                 {{ varTmp }};
+
+    {% set varTmp                       = 'var(--fs-footer-txt)' if !theme.typography.font_settings.footer.text.overwrite_font_styles else theme.typography.font_settings.footer.text.font_size_tablet + fontSizeUnit %}
+    --fs-footer-txt-tablet:             {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-footer-menu-title)' if !theme.typography.font_settings.footer.menu_titles.overwrite_font_styles else theme.typography.font_settings.footer.menu_titles.font_size_tablet + fontSizeUnit %}
+    --fs-footer-menu-title-tablet:      {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-footer-menu)' if !theme.typography.font_settings.footer.menu.overwrite_font_styles else theme.typography.font_settings.footer.menu.font_size_tablet + fontSizeUnit %}
+    --fs-footer-menu-tablet:            {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-footer-legal)' if !theme.typography.font_settings.footer.legal_text.overwrite_font_styles else theme.typography.font_settings.footer.legal_text.font_size_tablet + fontSizeUnit %}
+    --fs-footer-legal-tablet:           {{ varTmp }};
+    {# Font-size for forms #}
+    {% set varTmp                       = 'var(--fs-form-label)' if !theme.typography.font_settings.form.labels.overwrite_font_styles else theme.typography.font_settings.form.labels.font_size_tablet + fontSizeUnit %}
+    --fs-form-label-tablet:             {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-form-help)' if !theme.typography.font_settings.form.help.overwrite_font_styles else theme.typography.font_settings.form.help.font_size_tablet + fontSizeUnit %}
+    --fs-form-help-tablet:              {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-form-input)' if !theme.typography.font_settings.form.inputs.overwrite_font_styles else theme.typography.font_settings.form.inputs.font_size_tablet + fontSizeUnit %}
+    --fs-form-input-tablet:             {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-form-error)' if !theme.typography.font_settings.form.errors.overwrite_font_styles else theme.typography.font_settings.form.errors.font_size_tablet + fontSizeUnit %}
+    --fs-form-error-tablet:             {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-form-legal-consent)' if !theme.typography.font_settings.form.legal_consent.overwrite_font_styles else theme.typography.font_settings.form.legal_consent.font_size_tablet + fontSizeUnit %}
+    --fs-form-legal-consent-tablet:     {{ varTmp }};
+
+
+    {#
+    * Font-sizes IN PIXELS (MOBILE)
+    #}
+    {# Font size used in the body and in rich-text fields  #}
+    {% set varTmp                       = 'var(--fs-base-tablet)' if !theme.typography.font_settings.body_.overwrite_font_styles else theme.typography.font_settings.body_.font_size_mobile + fontSizeUnit %}
+    --fs-base-mobile:                   {{ varTmp }};
+    {# Font size used for paragraphs in the body and in rich-text fields  #}
+    {% set varTmp                       = 'var(--fs-paragraph-tablet)' if !theme.typography.font_settings.paragraph.overwrite_font_styles else theme.typography.font_settings.paragraph.font_size_mobile + fontSizeUnit %}
+    --fs-paragraph-mobile:              {{ varTmp }};
+    {# Font size used in the blog post body  #}
+    {% set varTmp                       = 'var(--fs-post-body-tablet)' if !theme.typography.font_settings.post_body.overwrite_font_styles else theme.typography.font_settings.post_body.font_size_mobile + fontSizeUnit %}
+    --fs-post-body-mobile:              {{ varTmp }};
+    {# Font-size for intro title in section modules #}
+    {% set varTmp                       = 'var(--fs-intro-title-sec-tablet)' if !theme.typography.font_settings.sec_intro_title.overwrite_font_styles else theme.typography.font_settings.sec_intro_title.font_size_mobile + fontSizeUnit %}
+    --fs-intro-title-sec-mobile:        {{ varTmp }};
+    {# Font-size for text description in section modules #}
+    {% set varTmp                       = 'var(--fs-desc-sec-tablet)' if !theme.typography.font_settings.sec_desc.overwrite_font_styles else theme.typography.font_settings.sec_desc.font_size_mobile + fontSizeUnit %}
+    --fs-desc-sec-mobile:               {{ varTmp }};
+    {# Font-size for buttons #}
+    {% set varTmp                       = 'var(--fs-btn-tablet)' if !theme.typography.font_settings.btns.overwrite_font_styles else theme.typography.font_settings.btns.font_size_mobile + fontSizeUnit %}
+    --fs-btn-mobile:                    {{ varTmp }};
+    {# Font-sizes for headings #}
+    {% set varTmp                       = getCSSFontSizeReduction('--fs-h1-tablet') if !theme.typography.font_settings.heading_one.overwrite_font_styles else theme.typography.font_settings.heading_one.font_size_mobile + fontSizeUnit %}
+    --fs-h1-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-h2-tablet)' if !theme.typography.font_settings.heading_two.overwrite_font_styles else theme.typography.font_settings.heading_two.font_size_mobile + fontSizeUnit %}
+    --fs-h2-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-h3-tablet)' if !theme.typography.font_settings.heading_three.overwrite_font_styles else theme.typography.font_settings.heading_three.font_size_mobile + fontSizeUnit %}
+    --fs-h3-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-h4-tablet)' if !theme.typography.font_settings.heading_four.overwrite_font_styles else theme.typography.font_settings.heading_four.font_size_mobile + fontSizeUnit %}
+    --fs-h4-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-h5-tablet)' if !theme.typography.font_settings.heading_five.overwrite_font_styles else theme.typography.font_settings.heading_five.font_size_mobile + fontSizeUnit %}
+    --fs-h5-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-h6-tablet)' if !theme.typography.font_settings.heading_six.overwrite_font_styles else theme.typography.font_settings.heading_six.font_size_mobile + fontSizeUnit %}
+    --fs-h6-mobile:                     {{ varTmp }};
+    {# Font-sizes for navigation (header and footer) - we recommend small variations from the default value #}
+    {% set varTmp                       = 'var(--fs-header-top-tablet)' if !theme.typography.font_settings.header.top_header.overwrite_font_styles else theme.typography.font_settings.header.top_header.font_size_mobile + fontSizeUnit %}
+    --fs-header-top-mobile:             {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-burger-tablet)' if !theme.typography.font_settings.header.burger.overwrite_font_styles else theme.typography.font_settings.header.burger.font_size_mobile + fontSizeUnit %}
+    --fs-burger-mobile:                 {{ varTmp }};
+
+    {% set varTmp                       = 'var(--fs-footer-txt-tablet)' if !theme.typography.font_settings.footer.text.overwrite_font_styles else theme.typography.font_settings.footer.text.font_size_mobile + fontSizeUnit %}
+    --fs-footer-txt-mobile:             {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-footer-menu-title-tablet)' if !theme.typography.font_settings.footer.menu_titles.overwrite_font_styles else theme.typography.font_settings.footer.menu_titles.font_size_mobile + fontSizeUnit %}
+    --fs-footer-menu-title-mobile:      {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-footer-menu-tablet)' if !theme.typography.font_settings.footer.menu.overwrite_font_styles else theme.typography.font_settings.footer.menu.font_size_mobile + fontSizeUnit %}
+    --fs-footer-menu-mobile:            {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-footer-legal-tablet)' if !theme.typography.font_settings.footer.legal_text.overwrite_font_styles else theme.typography.font_settings.footer.legal_text.font_size_mobile + fontSizeUnit %}
+    --fs-footer-legal-mobile:           {{ varTmp }};
+    {# Font-size for forms #}
+    {% set varTmp                       = 'var(--fs-form-label-tablet)' if !theme.typography.font_settings.form.labels.overwrite_font_styles else theme.typography.font_settings.form.labels.font_size_mobile + fontSizeUnit %}
+    --fs-form-label-mobile:             {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-form-help-tablet)' if !theme.typography.font_settings.form.help.overwrite_font_styles else theme.typography.font_settings.form.help.font_size_mobile + fontSizeUnit %}
+    --fs-form-help-mobile:              {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-form-input-tablet)' if !theme.typography.font_settings.form.inputs.overwrite_font_styles else theme.typography.font_settings.form.inputs.font_size_mobile + fontSizeUnit %}
+    --fs-form-input-mobile:             {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-form-error-tablet)' if !theme.typography.font_settings.form.errors.overwrite_font_styles else theme.typography.font_settings.form.errors.font_size_mobile + fontSizeUnit %}
+    --fs-form-error-mobile:             {{ varTmp }};
+    {% set varTmp                       = 'var(--fs-form-legal-consent-tablet)' if !theme.typography.font_settings.form.legal_consent.overwrite_font_styles else theme.typography.font_settings.form.legal_consent.font_size_mobile + fontSizeUnit %}
+    --fs-form-legal-consent-mobile:     {{ varTmp }};
+
+
+
+    {#
+    * Font-weights
+    #}
+    {# Font weight used in the body   #}
+    --fw-base:                          {{ theme.typography.font_settings.body_.font_weight }};
+    {# Font weight used in paragraphs   #}
+    --fw-paragraph:                     {{ theme.typography.font_settings.paragraph.font_weight }};
+    {# Font weight used in UL   #}
+    --fw-ul:                            {{ theme.typography.font_settings.ul.font_weight }};
+    {# Font weight used in OL   #}
+    --fw-ol:                            {{ theme.typography.font_settings.ol.font_weight }};
+    {# Font weight used in the blog post body  #}
+    --fw-post-body:                     {{ theme.typography.font_settings.post_body.font_weight }};
+    {# Font weight for intro title in section modules #}
+    --fw-intro-title-sec:               {{ theme.typography.font_settings.sec_intro_title.font_weight }};
+    {# Font weight for text description in section modules #}
+    --fw-desc-sec:                      {{ theme.typography.font_settings.sec_desc.font_weight }};
+    {# Font weight used for headings   #}
+    --fw-h1:                            {{ theme.typography.font_settings.heading_one.font_weight }};
+    --fw-h2:                            {{ theme.typography.font_settings.heading_two.font_weight }};
+    --fw-h3:                            {{ theme.typography.font_settings.heading_three.font_weight }};
+    --fw-h4:                            {{ theme.typography.font_settings.heading_four.font_weight }};
+    --fw-h5:                            {{ theme.typography.font_settings.heading_five.font_weight }};
+    --fw-h6:                            {{ theme.typography.font_settings.heading_six.font_weight }};
+    {# Font weight for buttons        #}
+    --fw-btn:                           {{ theme.typography.font_settings.btns.font_weight }};
+    {# Font weights Header         #}
+    --fw-header-top:                    {{ theme.typography.font_settings.header.top_header.font_weight }};
+    --fw-header:                        {{ theme.typography.font_settings.header.header.font_weight }};
+    --fw-burger:                        {{ theme.typography.font_settings.header.burger.font_weight }};
+    --fw-mega-menu:                     {{ theme.typography.font_settings.header.mega_menu.font_weight }};
+    --fw-amm-txt:                       {{ theme.typography.font_settings.header.amm.text.font_weight }};
+    --fw-amm-menu-title:                {{ theme.typography.font_settings.header.amm.menu_titles.font_weight }};
+    --fw-amm-menu:                      {{ theme.typography.font_settings.header.amm.menu.font_weight }};
+    --fw-amm-smm:                       {{ theme.typography.font_settings.header.amm.smm.font_weight }};
+    --fw-footer-txt:                    {{ theme.typography.font_settings.footer.text.font_weight }};
+    --fw-footer-menu-title:             {{ theme.typography.font_settings.footer.menu_titles.font_weight }};
+    --fw-footer-menu:                   {{ theme.typography.font_settings.footer.menu.font_weight }};
+    --fw-footer-legal:                  {{ theme.typography.font_settings.footer.legal_text.font_weight }};
+    {# Font weights for forms #}
+    --fw-form-label:                    {{ theme.typography.font_settings.form.labels.font_weight }};
+    --fw-form-help:                     {{ theme.typography.font_settings.form.help.font_weight }};
+    --fw-form-input:                    {{ theme.typography.font_settings.form.inputs.font_weight }};
+    --fw-form-error:                    {{ theme.typography.font_settings.form.errors.font_weight }};
+    --fw-form-legal-consent:            {{ theme.typography.font_settings.form.legal_consent.font_weight }};
+
+
+    {#
+    * Line-heights TRANSFORMED TO EM (DESKTOP/DEFAULT)
+    #}
+    {% set lineHeightUnit               = 'em' %}
+    {# Line height used in the body   #}
+    --lh-base:                          {{ ( theme.typography.font_settings.body_.line_height / theme.typography.font_settings.body_.font_size.size ) + lineHeightUnit }};
+    {# Line height used in paragraphs   #}
+    --lh-paragraph:                     {{ ( theme.typography.font_settings.paragraph.line_height / theme.typography.font_settings.paragraph.font_size.size ) + lineHeightUnit }};
+    {# Line height used in the blog post body  #}
+    --lh-post-body:                     {{ ( theme.typography.font_settings.post_body.line_height / theme.typography.font_settings.post_body.font_size.size ) + lineHeightUnit }};
+    {# Line height for intro title in section modules #}
+    --lh-intro-title-sec:               {{ ( theme.typography.font_settings.sec_intro_title.line_height / theme.typography.font_settings.sec_intro_title.font_size.size ) + lineHeightUnit }};
+    {# Line height for text description in section modules #}
+    --lh-desc-sec:                      {{ ( theme.typography.font_settings.sec_desc.line_height / theme.typography.font_settings.sec_desc.font_size.size ) + lineHeightUnit }};
+    {# Line height for headings #}
+    --lh-h1:                            {{ ( theme.typography.font_settings.heading_one.line_height / theme.typography.font_settings.heading_one.font_size.size ) + lineHeightUnit }};
+    --lh-h2:                            {{ ( theme.typography.font_settings.heading_two.line_height / theme.typography.font_settings.heading_two.font_size.size ) + lineHeightUnit }};
+    --lh-h3:                            {{ ( theme.typography.font_settings.heading_three.line_height / theme.typography.font_settings.heading_three.font_size.size ) + lineHeightUnit }};
+    --lh-h4:                            {{ ( theme.typography.font_settings.heading_four.line_height / theme.typography.font_settings.heading_four.font_size.size ) + lineHeightUnit }};
+    --lh-h5:                            {{ ( theme.typography.font_settings.heading_five.line_height / theme.typography.font_settings.heading_five.font_size.size ) + lineHeightUnit }};
+    --lh-h6:                            {{ ( theme.typography.font_settings.heading_six.line_height / theme.typography.font_settings.heading_six.font_size.size ) + lineHeightUnit }};
+
+    {#
+    * Line-heights TRANSFORMED TO EM (TABLET)
+    #}
+    {# Line height used in the body   #}
+    {% set varTmp                       = 'var(--lh-base)' if !theme.typography.font_settings.body_.overwrite_font_styles else ( theme.typography.font_settings.body_.line_height_tablet / theme.typography.font_settings.body_.font_size_tablet ) + lineHeightUnit %}
+    --lh-base-tablet:                   {{ varTmp }};
+    {# Line height used in paragraphs   #}
+    {% set varTmp                       = 'var(--lh-paragraph)' if !theme.typography.font_settings.paragraph.overwrite_font_styles else ( theme.typography.font_settings.paragraph.line_height_tablet / theme.typography.font_settings.paragraph.font_size_tablet ) + lineHeightUnit %}
+    --lh-paragraph-tablet:              {{ varTmp }};
+    {# Line height used in the blog post body  #}
+    {% set varTmp                       = 'var(--lh-post-body)' if !theme.typography.font_settings.post_body.overwrite_font_styles else ( theme.typography.font_settings.post_body.line_height_tablet / theme.typography.font_settings.post_body.font_size_tablet ) + lineHeightUnit %}
+    --lh-post-body-tablet:              {{ varTmp }};
+    {# Line height for intro title in section modules #}
+    {% set varTmp                       = 'var(--lh-intro-title-sec)' if !theme.typography.font_settings.sec_intro_title.overwrite_font_styles else ( theme.typography.font_settings.sec_intro_title.line_height_tablet / theme.typography.font_settings.sec_intro_title.font_size_tablet ) + lineHeightUnit %}
+    --lh-intro-title-sec-tablet:        {{ varTmp }};
+    {# Line height for text description in section modules #}
+    {% set varTmp                       = 'var(--lh-desc-sec)' if !theme.typography.font_settings.sec_desc.overwrite_font_styles else ( theme.typography.font_settings.sec_desc.line_height_tablet / theme.typography.font_settings.sec_desc.font_size_tablet ) + lineHeightUnit %}
+    --lh-desc-sec-tablet:               {{ varTmp }};
+    {# Line height for headings #}
+    {% set varTmp                       = 'var(--lh-h1)' if !theme.typography.font_settings.heading_one.overwrite_font_styles else ( theme.typography.font_settings.heading_one.line_height_tablet / theme.typography.font_settings.heading_one.font_size_tablet ) + lineHeightUnit %}
+    --lh-h1-tablet:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--lh-h2)' if !theme.typography.font_settings.heading_two.overwrite_font_styles else ( theme.typography.font_settings.heading_two.line_height_tablet / theme.typography.font_settings.heading_two.font_size_tablet ) + lineHeightUnit %}
+    --lh-h2-tablet:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--lh-h3)' if !theme.typography.font_settings.heading_three.overwrite_font_styles else ( theme.typography.font_settings.heading_three.line_height_tablet / theme.typography.font_settings.heading_three.font_size_tablet ) + lineHeightUnit %}
+    --lh-h3-tablet:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--lh-h4)' if !theme.typography.font_settings.heading_four.overwrite_font_styles else ( theme.typography.font_settings.heading_four.line_height_tablet / theme.typography.font_settings.heading_four.font_size_tablet ) + lineHeightUnit %}
+    --lh-h4-tablet:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--lh-h5)' if !theme.typography.font_settings.heading_five.overwrite_font_styles else ( theme.typography.font_settings.heading_five.line_height_tablet / theme.typography.font_settings.heading_five.font_size_tablet ) + lineHeightUnit %}
+    --lh-h5-tablet:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--lh-h6)' if !theme.typography.font_settings.heading_six.overwrite_font_styles else ( theme.typography.font_settings.heading_six.line_height_tablet / theme.typography.font_settings.heading_six.font_size_tablet ) + lineHeightUnit %}
+    --lh-h6-tablet:                     {{ varTmp }};
+
+    {#
+    * Line-heights TRANSFORMED TO EM (MOBILE)
+    #}
+    {# Line height used in the body   #}
+    {% set varTmp                       = 'var(--lh-base-tablet)' if !theme.typography.font_settings.body_.overwrite_font_styles else ( theme.typography.font_settings.body_.line_height_mobile / theme.typography.font_settings.body_.font_size_mobile ) + lineHeightUnit %}
+    --lh-base-mobile:                   {{ varTmp }};
+    {# Line height used in paragraphs   #}
+    {% set varTmp                       = 'var(--lh-paragraph-tablet)' if !theme.typography.font_settings.paragraph.overwrite_font_styles else ( theme.typography.font_settings.paragraph.line_height_mobile / theme.typography.font_settings.paragraph.font_size_mobile ) + lineHeightUnit %}
+    --lh-paragraph-mobile:              {{ varTmp }};
+    {# Line height used in the blog post body  #}
+    {% set varTmp                       = 'var(--lh-post-body-tablet)' if !theme.typography.font_settings.post_body.overwrite_font_styles else ( theme.typography.font_settings.post_body.line_height_mobile / theme.typography.font_settings.post_body.font_size_mobile ) + lineHeightUnit %}
+    --lh-post-body-mobile:              {{ varTmp }};
+    {# Line height for intro title in section modules #}
+    {% set varTmp                       = 'var(--lh-intro-title-sec-tablet)' if !theme.typography.font_settings.sec_intro_title.overwrite_font_styles else ( theme.typography.font_settings.sec_intro_title.line_height_mobile / theme.typography.font_settings.sec_intro_title.font_size_mobile ) + lineHeightUnit %}
+    --lh-intro-title-sec-mobile:        {{ varTmp }};
+    {# Line height for text description in section modules #}
+    {% set varTmp                       = 'var(--lh-desc-sec-tablet)' if !theme.typography.font_settings.sec_desc.overwrite_font_styles else ( theme.typography.font_settings.sec_desc.line_height_mobile / theme.typography.font_settings.sec_desc.font_size_mobile ) + lineHeightUnit %}
+    --lh-desc-sec-mobile:               {{ varTmp }};
+    {# Line height for headings #}
+    {% set varTmp                       = 'var(--lh-h1-tablet)' if !theme.typography.font_settings.heading_one.overwrite_font_styles else ( theme.typography.font_settings.heading_one.line_height_mobile / theme.typography.font_settings.heading_one.font_size_mobile ) + lineHeightUnit %}
+    --lh-h1-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--lh-h2-tablet)' if !theme.typography.font_settings.heading_two.overwrite_font_styles else ( theme.typography.font_settings.heading_two.line_height_mobile / theme.typography.font_settings.heading_two.font_size_mobile ) + lineHeightUnit %}
+    --lh-h2-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--lh-h3-tablet)' if !theme.typography.font_settings.heading_three.overwrite_font_styles else ( theme.typography.font_settings.heading_three.line_height_mobile / theme.typography.font_settings.heading_three.font_size_mobile ) + lineHeightUnit %}
+    --lh-h3-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--lh-h4-tablet)' if !theme.typography.font_settings.heading_four.overwrite_font_styles else ( theme.typography.font_settings.heading_four.line_height_mobile / theme.typography.font_settings.heading_four.font_size_mobile ) + lineHeightUnit %}
+    --lh-h4-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--lh-h5-tablet)' if !theme.typography.font_settings.heading_five.overwrite_font_styles else ( theme.typography.font_settings.heading_five.line_height_mobile / theme.typography.font_settings.heading_five.font_size_mobile ) + lineHeightUnit %}
+    --lh-h5-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--lh-h6-tablet)' if !theme.typography.font_settings.heading_six.overwrite_font_styles else ( theme.typography.font_settings.heading_six.line_height_mobile / theme.typography.font_settings.heading_six.font_size_mobile ) + lineHeightUnit %}
+    --lh-h6-mobile:                     {{ varTmp }};
+
+
+    {#
+    * Letter-spacings IN PIXELS (DESKTOP/DEFAULT)
+    #}
+    {% set letterSpacingUnit            = 'px' %}
+    {# Letter-spacing used in the body   #}
+    --ls-base:                          {{ theme.typography.font_settings.body_.letter_spacing + letterSpacingUnit }};
+    {# Letter-spacing used in paragraphs   #}
+    --ls-paragraph:                     {{ theme.typography.font_settings.paragraph.letter_spacing + letterSpacingUnit }};
+    {# Letter-spacing used in UL   #}
+    --ls-ul:                            {{ theme.typography.font_settings.ul.letter_spacing + letterSpacingUnit }};
+    {# Letter-spacing used in OL   #}
+    --ls-ol:                            {{ theme.typography.font_settings.ol.letter_spacing + letterSpacingUnit }};
+    {# Letter-spacing used in the blog post body  #}
+    --ls-post-body:                     {{ theme.typography.font_settings.post_body.letter_spacing + letterSpacingUnit }};
+    {# Letter-spacing for intro title in section modules #}
+    --ls-intro-title-sec:               {{ theme.typography.font_settings.sec_intro_title.letter_spacing + letterSpacingUnit }};
+    {# Letter-spacing for text description in section modules #}
+    --ls-desc-sec:                      {{ theme.typography.font_settings.sec_desc.letter_spacing + letterSpacingUnit }};
+    {# Letter-spacing used for headings   #}
+    --ls-h1:                            {{ theme.typography.font_settings.heading_one.letter_spacing + letterSpacingUnit }};
+    --ls-h2:                            {{ theme.typography.font_settings.heading_two.letter_spacing + letterSpacingUnit }};
+    --ls-h3:                            {{ theme.typography.font_settings.heading_three.letter_spacing + letterSpacingUnit }};
+    --ls-h4:                            {{ theme.typography.font_settings.heading_four.letter_spacing + letterSpacingUnit }};
+    --ls-h5:                            {{ theme.typography.font_settings.heading_five.letter_spacing + letterSpacingUnit }};
+    --ls-h6:                            {{ theme.typography.font_settings.heading_six.letter_spacing + letterSpacingUnit }};
+    {# Letter-spacing for buttons        #}
+    --ls-btn:                           {{ theme.typography.font_settings.btns.letter_spacing + letterSpacingUnit }};
+    {# Letter-spacing Header         #}
+    --ls-header-top:                    {{ theme.typography.font_settings.header.top_header.letter_spacing + letterSpacingUnit }};
+    --ls-header:                        {{ theme.typography.font_settings.header.header.letter_spacing + letterSpacingUnit }};
+    --ls-burger:                        {{ theme.typography.font_settings.header.burger.letter_spacing + letterSpacingUnit }};
+    --ls-mega-menu:                     {{ theme.typography.font_settings.header.mega_menu.letter_spacing + letterSpacingUnit }};
+    --ls-amm-txt:                       {{ theme.typography.font_settings.header.amm.text.letter_spacing + letterSpacingUnit }};
+    --ls-amm-menu-title:                {{ theme.typography.font_settings.header.amm.menu_titles.letter_spacing + letterSpacingUnit }};
+    --ls-amm-menu:                      {{ theme.typography.font_settings.header.amm.menu.letter_spacing + letterSpacingUnit }};
+    --ls-amm-smm:                       {{ theme.typography.font_settings.header.amm.smm.letter_spacing + letterSpacingUnit }};
+
+    --ls-footer-txt:                    {{ theme.typography.font_settings.footer.text.letter_spacing + letterSpacingUnit }};
+    --ls-footer-menu-title:             {{ theme.typography.font_settings.footer.menu_titles.letter_spacing + letterSpacingUnit }};
+    --ls-footer-menu:                   {{ theme.typography.font_settings.footer.menu.letter_spacing + letterSpacingUnit }};
+    --ls-footer-legal:                  {{ theme.typography.font_settings.footer.legal_text.letter_spacing + letterSpacingUnit }};
+    {# Letter-spacing for forms #}
+    --ls-form-label:                    {{ theme.typography.font_settings.form.labels.letter_spacing + letterSpacingUnit }};
+    --ls-form-help:                     {{ theme.typography.font_settings.form.help.letter_spacing + letterSpacingUnit }};
+    --ls-form-input:                    {{ theme.typography.font_settings.form.inputs.letter_spacing + letterSpacingUnit }};
+    --ls-form-error:                    {{ theme.typography.font_settings.form.errors.letter_spacing + letterSpacingUnit }};
+    --ls-form-legal-consent:            {{ theme.typography.font_settings.form.legal_consent.letter_spacing + letterSpacingUnit }};
+
+    {#
+    * Letter-spacings IN PIXELS (TABLET)
+    #}
+    {# Letter-spacing used in the body   #}
+    {% set varTmp                       = 'var(--ls-base)' if !theme.typography.font_settings.body_.overwrite_font_styles else theme.typography.font_settings.body_.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-base-tablet:                   {{ varTmp }};
+    {# Letter-spacing used in paragraphs   #}
+    {% set varTmp                       = 'var(--ls-paragraph)' if !theme.typography.font_settings.paragraph.overwrite_font_styles else theme.typography.font_settings.paragraph.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-paragraph-tablet:              {{ varTmp }};
+    {# Letter-spacing used in UL   #}
+    {% set varTmp                       = 'var(--ls-ul)' if !theme.typography.font_settings.ul.overwrite_font_styles else theme.typography.font_settings.ul.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-ul-tablet:                     {{ varTmp }};
+    {# Letter-spacing used in OL   #}
+    {% set varTmp                       = 'var(--ls-ol)' if !theme.typography.font_settings.ol.overwrite_font_styles else theme.typography.font_settings.ol.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-ol-tablet:                     {{ varTmp }};
+    {# Letter-spacing used in the blog post body  #}
+    {% set varTmp                       = 'var(--ls-post-body)' if !theme.typography.font_settings.post_body.overwrite_font_styles else theme.typography.font_settings.post_body.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-post-body-tablet:              {{ varTmp }};
+    {# Letter-spacing for intro title in section modules #}
+    {% set varTmp                       = 'var(--ls-intro-title-sec)' if !theme.typography.font_settings.sec_intro_title.overwrite_font_styles else theme.typography.font_settings.sec_intro_title.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-intro-title-sec-tablet:        {{ varTmp }};
+    {# Letter-spacing for text description in section modules #}
+    {% set varTmp                       = 'var(--ls-desc-sec)' if !theme.typography.font_settings.sec_desc.overwrite_font_styles else theme.typography.font_settings.sec_desc.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-desc-sec-tablet:               {{ varTmp }};
+    {# Letter-spacing used for headings   #}
+    {% set varTmp                       = 'var(--ls-h1)' if !theme.typography.font_settings.heading_one.overwrite_font_styles else theme.typography.font_settings.heading_one.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-h1-tablet:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-h2)' if !theme.typography.font_settings.heading_two.overwrite_font_styles else theme.typography.font_settings.heading_two.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-h2-tablet:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-h3)' if !theme.typography.font_settings.heading_three.overwrite_font_styles else theme.typography.font_settings.heading_three.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-h3-tablet:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-h4)' if !theme.typography.font_settings.heading_four.overwrite_font_styles else theme.typography.font_settings.heading_four.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-h4-tablet:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-h5)' if !theme.typography.font_settings.heading_five.overwrite_font_styles else theme.typography.font_settings.heading_five.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-h5-tablet:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-h6)' if !theme.typography.font_settings.heading_six.overwrite_font_styles else theme.typography.font_settings.heading_six.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-h6-tablet:                     {{ varTmp }};
+    {# Letter-spacing for buttons        #}
+    {% set varTmp                       = 'var(--ls-btn)' if !theme.typography.font_settings.btns.overwrite_font_styles else theme.typography.font_settings.btns.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-btn-tablet:                    {{ varTmp }};
+    {# Letter-spacing Header         #}
+    {% set varTmp                       = 'var(--ls-header-top)' if !theme.typography.font_settings.header.top_header.overwrite_font_styles else theme.typography.font_settings.header.top_header.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-header-top-tablet:             {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-header)' if !theme.typography.font_settings.header.header.overwrite_font_styles else theme.typography.font_settings.header.header.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-header-tablet:                 {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-burger)' if !theme.typography.font_settings.header.burger.overwrite_font_styles else theme.typography.font_settings.header.burger.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-burger-tablet:                 {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-footer-txt)' if !theme.typography.font_settings.footer.text.overwrite_font_styles else theme.typography.font_settings.footer.text.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-footer-txt-tablet:             {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-footer-menu-title)' if !theme.typography.font_settings.footer.menu_titles.overwrite_font_styles else theme.typography.font_settings.footer.menu_titles.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-footer-menu-title-tablet:      {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-footer-menu)' if !theme.typography.font_settings.footer.menu.overwrite_font_styles else theme.typography.font_settings.footer.menu.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-footer-menu-tablet:            {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-footer-legal)' if !theme.typography.font_settings.footer.legal_text.overwrite_font_styles else theme.typography.font_settings.footer.legal_text.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-footer-legal-tablet:           {{ varTmp }};
+    {# Letter-spacing for forms #}
+    {% set varTmp                       = 'var(--ls-form-label)' if !theme.typography.font_settings.form.labels.overwrite_font_styles else theme.typography.font_settings.form.labels.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-form-label-tablet:             {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-form-help)' if !theme.typography.font_settings.form.help.overwrite_font_styles else theme.typography.font_settings.form.help.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-form-help-tablet:              {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-form-input)' if !theme.typography.font_settings.form.inputs.overwrite_font_styles else theme.typography.font_settings.form.inputs.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-form-input-tablet:             {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-form-error)' if !theme.typography.font_settings.form.errors.overwrite_font_styles else theme.typography.font_settings.form.errors.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-form-error-tablet:             {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-form-legal-consent)' if !theme.typography.font_settings.form.legal_consent.overwrite_font_styles else theme.typography.font_settings.form.legal_consent.letter_spacing_tablet + letterSpacingUnit %}
+    --ls-form-legal-consent-tablet:     {{ varTmp }};
+
+
+    {#
+    * Letter-spacings IN PIXELS (MOBILE)
+    #}
+    {# Letter-spacing used in the body   #}
+    {% set varTmp                       = 'var(--ls-base-tablet)' if !theme.typography.font_settings.body_.overwrite_font_styles else theme.typography.font_settings.body_.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-base-mobile:                   {{ varTmp }};
+    {# Letter-spacing used in paragraphs   #}
+    {% set varTmp                       = 'var(--ls-paragraph-tablet)' if !theme.typography.font_settings.paragraph.overwrite_font_styles else theme.typography.font_settings.paragraph.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-paragraph-mobile:              {{ varTmp }};
+    {# Letter-spacing used in UL   #}
+    {% set varTmp                       = 'var(--ls-ul-tablet)' if !theme.typography.font_settings.ul.overwrite_font_styles else theme.typography.font_settings.ul.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-ul-mobile:                     {{ varTmp }};
+    {# Letter-spacing used in OL   #}
+    {% set varTmp                       = 'var(--ls-ol-tablet)' if !theme.typography.font_settings.ol.overwrite_font_styles else theme.typography.font_settings.ol.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-ol-mobile:                     {{ varTmp }};
+    {# Letter-spacing used in the blog post body  #}
+    {% set varTmp                       = 'var(--ls-post-body-tablet)' if !theme.typography.font_settings.post_body.overwrite_font_styles else theme.typography.font_settings.post_body.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-post-body-mobile:              {{ varTmp }};
+    {# Letter-spacing for intro title in section modules #}
+    {% set varTmp                       = 'var(--ls-intro-title-sec-tablet)' if !theme.typography.font_settings.sec_intro_title.overwrite_font_styles else theme.typography.font_settings.sec_intro_title.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-intro-title-sec-mobile:        {{ varTmp }};
+    {# Letter-spacing for text description in section modules #}
+    {% set varTmp                       = 'var(--ls-desc-sec-tablet)' if !theme.typography.font_settings.sec_desc.overwrite_font_styles else theme.typography.font_settings.sec_desc.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-desc-sec-mobile:               {{ varTmp }};
+    {# Letter-spacing used for headings   #}
+    {% set varTmp                       = 'var(--ls-h1-tablet)' if !theme.typography.font_settings.heading_one.overwrite_font_styles else theme.typography.font_settings.heading_one.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-h1-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-h2-tablet)' if !theme.typography.font_settings.heading_two.overwrite_font_styles else theme.typography.font_settings.heading_two.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-h2-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-h3-tablet)' if !theme.typography.font_settings.heading_three.overwrite_font_styles else theme.typography.font_settings.heading_three.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-h3-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-h4-tablet)' if !theme.typography.font_settings.heading_four.overwrite_font_styles else theme.typography.font_settings.heading_four.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-h4-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-h5-tablet)' if !theme.typography.font_settings.heading_five.overwrite_font_styles else theme.typography.font_settings.heading_five.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-h5-mobile:                     {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-h6-tablet)' if !theme.typography.font_settings.heading_six.overwrite_font_styles else theme.typography.font_settings.heading_six.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-h6-mobile:                     {{ varTmp }};
+    {# Letter-spacing for buttons        #}
+    {% set varTmp                       = 'var(--ls-btn-tablet)' if !theme.typography.font_settings.btns.overwrite_font_styles else theme.typography.font_settings.btns.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-btn-mobile:                    {{ varTmp }};
+    {# Letter-spacing Header         #}
+    {% set varTmp                       = 'var(--ls-header-top-tablet)' if !theme.typography.font_settings.header.top_header.overwrite_font_styles else theme.typography.font_settings.header.top_header.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-header-top-mobile:             {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-burger-tablet)' if !theme.typography.font_settings.header.burger.overwrite_font_styles else theme.typography.font_settings.header.burger.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-burger-mobile:                 {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-footer-txt-tablet)' if !theme.typography.font_settings.footer.text.overwrite_font_styles else theme.typography.font_settings.footer.text.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-footer-txt-mobile:             {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-footer-menu-title-tablet)' if !theme.typography.font_settings.footer.menu_titles.overwrite_font_styles else theme.typography.font_settings.footer.menu_titles.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-footer-menu-title-mobile:      {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-footer-menu-tablet)' if !theme.typography.font_settings.footer.menu.overwrite_font_styles else theme.typography.font_settings.footer.menu.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-footer-menu-mobile:            {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-footer-legal-tablet)' if !theme.typography.font_settings.footer.legal_text.overwrite_font_styles else theme.typography.font_settings.footer.legal_text.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-footer-legal-mobile:           {{ varTmp }};
+    {# Letter-spacing for forms #}
+    {% set varTmp                       = 'var(--ls-form-label-tablet)' if !theme.typography.font_settings.form.labels.overwrite_font_styles else theme.typography.font_settings.form.labels.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-form-label-mobile:             {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-form-help-tablet)' if !theme.typography.font_settings.form.help.overwrite_font_styles else theme.typography.font_settings.form.help.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-form-help-mobile:              {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-form-input-tablet)' if !theme.typography.font_settings.form.inputs.overwrite_font_styles else theme.typography.font_settings.form.inputs.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-form-input-mobile:             {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-form-error-tablet)' if !theme.typography.font_settings.form.errors.overwrite_font_styles else theme.typography.font_settings.form.errors.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-form-error-mobile:             {{ varTmp }};
+    {% set varTmp                       = 'var(--ls-form-legal-consent-tablet)' if !theme.typography.font_settings.form.legal_consent.overwrite_font_styles else theme.typography.font_settings.form.legal_consent.letter_spacing_mobile + letterSpacingUnit %}
+    --ls-form-legal-consent-mobile:     {{ varTmp }};
+
+
+    {# Accent text-property for e.g. titles, button-texts, menu, ...
+    * Standard value -> text-transform: uppercase. To deactivate, use empty single quotation 
+    #}
+    {% set uppercaseTitles              = 'uppercase' if theme.typography.font_settings.is_uppercase.titles else 'none' %}
+    {% set uppercaseNavigation          = 'uppercase' if theme.typography.font_settings.is_uppercase.nav else 'none' %}
+    {% set uppercaseLinks               = 'uppercase' if theme.typography.font_settings.is_uppercase.links else 'none' %}
+    {% set uppercaseOther               = 'uppercase' if theme.typography.font_settings.is_uppercase.other else 'none' %}
+
+    --tt-title:                         {{ uppercaseTitles }};
+    --tt-nav:                           {{ uppercaseNavigation }};
+    --tt-link:                          {{ uppercaseLinks }};
+    --tt-other:                         {{ uppercaseOther }};
+
+    {# ==========================================================================
+       1.4 ROUND EDGES                                           #re
+
+       0px is rectangular and 25px already pretty round
+    ========================================================================== #}
+    
+    {% set borderRadiusUnit             = 'px' %}
+    --br:                               {{ theme.styling.corners.border_radius + borderRadiusUnit }};
+    {# Round edges on buttons #}
+    --br-btn:                           {{ theme.styling.corners.btns + borderRadiusUnit }};
+    {# Round edges on inputs #}
+    --br-input:                         {{ theme.styling.corners.inputs + borderRadiusUnit }};
+    {# Round edges on dropdowns, menu tags #}
+    --br-menu:                          {{ theme.styling.corners.dropdowns + borderRadiusUnit }};
+    {# Round edges on boxes #}
+    --br-box:                           {{ theme.styling.corners.boxes + borderRadiusUnit }};
+    {# Round edges on images #}
+    --br-img:                           {{ theme.styling.corners.imgs + borderRadiusUnit }};
+    {# Round edges on checkboxes (max 6px) #}
+    --br-checkbox:                      {{ theme.styling.corners.checkboxes + borderRadiusUnit }};
+    {# Round edges on sections #}
+    --br-sec:                           {{ theme.styling.corners.sections + borderRadiusUnit }};
+
+
+    {# ==========================================================================
+       1.5 LAYOUT                                                #lay
+    ========================================================================== #}
+
+    {% set paddingUnit                  = 'px' %}
+    {# Vertical section padding in pixel
+    * Relates to 'padding top' and 'padding bottom' setting in modules 
+    #}
+    --sp-sec-p-vert-small:              {{ theme.layout.spacing.sec_padding_small + paddingUnit }};
+    --sp-sec-p-vert-medium:             {{ theme.layout.spacing.sec_padding_medium + paddingUnit }};
+    --sp-sec-p-vert-large:              {{ theme.layout.spacing.sec_padding_large + paddingUnit }};
+
+    {# Vertical section margin in pixel #}
+    --sp-sec-m-vert-small:              {{ theme.layout.spacing_m.sec_margin_small + paddingUnit }};
+    --sp-sec-m-vert-medium:             {{ theme.layout.spacing_m.sec_margin_medium + paddingUnit }};
+    --sp-sec-m-vert-large:              {{ theme.layout.spacing_m.sec_margin_large + paddingUnit }};
+
+    {# Horizontal section padding in pixel #}
+    --sp-p-hor-desktop:                 {{ theme.resp.spacing.padding_hor_desktop + paddingUnit }};
+    --sp-p-hor-mobile:                  {{ theme.resp.spacing.padding_hor_mobile + paddingUnit }};
+
+    {% set hsPaddingFormTitleMobile     = theme.resp.spacing.padding_hor_mobile if theme.colors.hs.forms.title_background_color.opacity != 0 else 0 %}
+    {% set hsPaddingFormTitleDesktop    = theme.resp.spacing.padding_hor_desktop if theme.colors.hs.forms.title_background_color.opacity != 0 else 0 %}
+
+    {% set hsPaddingFormMobile          = theme.resp.spacing.padding_hor_mobile if theme.colors.hs.forms.background_color.opacity != 0 || theme.colors.hs.forms.border_color.opacity != 0 else 0 %}
+    {% set hsPaddingFormDesktop         = theme.resp.spacing.padding_hor_desktop if theme.colors.hs.forms.background_color.opacity != 0 || theme.colors.hs.forms.border_color.opacity != 0 else 0 %}
+
+    --sp-p-form-title-mobile:           {{ hsPaddingFormTitleMobile + paddingUnit }};
+    --sp-p-form-title-desktop:          {{ hsPaddingFormTitleDesktop + paddingUnit }};
+    --sp-p-form-mobile:                 {{ hsPaddingFormMobile + paddingUnit }};
+    --sp-p-form-desktop:                {{ hsPaddingFormDesktop + paddingUnit }};
+
+    {# 
+    * Main header menu position
+    * 
+    * Position in percent.
+    * Automatically centered if header is full-width
+    #}
+    --lo-header-shift-left:             {{ theme.layout.header_menu_pos + '%' }};
+
+    {# Content width in pixel #}
+    --lo-content-width:                 {{ theme.layout.content_width + 'px' }};
+
+    {# Content width for blog post #}
+    --lo-content-width-blog-post: {% if theme.blog.blog_post.blog_post_content_width=="default" %} 795px; {% elif theme.blog.blog_post.blog_post_content_width=="web_default" %} {{ theme.layout.content_width + 'px' }}; {% elif theme.blog.blog_post.blog_post_content_width=="custom" %} {{ theme.blog.blog_post.blog_post_content_width_custom +'px' }}; {% endif %}
+
+
+    {# Mobile responsiveness size reduction factors #}
+    {# reduces font-sizes for mobile where applicable - by factor e.g. .25 => 25% #}
+    --fs-reduction-factor:              {{ (1 - theme.resp.font_sizes.reduce_font_size_by / 100) }};
+    {# Not smaller than ... pixel #}
+    --fs-min:                           {{ theme.resp.font_sizes.min_font_size + 'px' }};
+    {# Reduces margins, paddings, etc. - by factor e.g. .25 => 25% #}
+    --sp-reduction-factor:              {{ (1 - theme.resp.spacing.reduce_spacing_by / 100) }};
+
+
+    {# ==========================================================================
+       1.6 STYLING                                                #sty
+    ========================================================================== #}
+
+    {# 
+    * Slider Bullet Styles
+    #}
+
+    {# Slider Pagination Bullet Styles - General #}
+    --sl-pag-bullet-horizontal-gap: {{ theme.styling.sliders.bullet_points.bullet_gutter / 2 }}px;
+
+    {# Slider Pagination Bullet Styles - Inactive #}
+    --sl-pag-bullet-inactive-opacity: {{ theme.styling.sliders.bullet_points.inactive.opacity / 100 }};
+
+    {% if theme.styling.sliders.bullet_points.inactive.bullet_shape is string_startingwith 'rect' %}
+    --sl-pag-bullet-inactive-height: {{ theme.styling.sliders.bullet_points.inactive.bullet_rect_height }}px;
+    --sl-pag-height: {{ theme.styling.sliders.bullet_points.inactive.bullet_rect_height }}px;
+    --sl-pag-bullet-inactive-width:  {{ theme.styling.sliders.bullet_points.inactive.bullet_rect_width }}px;
+    {% endif %}
+
+    {% if theme.styling.sliders.bullet_points.inactive.bullet_shape == 'circle' || theme.styling.sliders.bullet_points.inactive.bullet_shape == 'square' %}
+    --sl-pag-bullet-inactive-size: {{ theme.styling.sliders.bullet_points.inactive.bullet_square_circle }}px;
+    --sl-pag-height: {{ theme.styling.sliders.bullet_points.inactive.bullet_square_circle }}px;
+    {% endif %}
+
+    --sl-pag-bullet-inactive-border-radius: 0px;
+    {% if theme.styling.sliders.bullet_points.inactive.bullet_shape == 'rect_rounded' %}
+    --sl-pag-bullet-inactive-border-radius: 50px;
+    {% elif theme.styling.sliders.bullet_points.inactive.bullet_shape == 'circle' %}
+    --sl-pag-bullet-inactive-border-radius: 50%;
+    {% endif %}
+
+    {# Slider Pagination Bullet Styles - Active #}
+    {% if theme.styling.sliders.bullet_points.active.bullet_shape is string_startingwith 'rect' %}
+    --sl-pag-bullet-active-height: {{ theme.styling.sliders.bullet_points.active.bullet_rect_height }}px;
+        {% if theme.styling.sliders.bullet_points.active.bullet_rect_height > theme.styling.sliders.bullet_points.inactive.bullet_rect_height %}
+        --sl-pag-height: {{ theme.styling.sliders.bullet_points.active.bullet_rect_height }}px;
+        {% endif %}
+    --sl-pag-bullet-active-width:  {{ theme.styling.sliders.bullet_points.active.bullet_rect_width }}px;
+    {% endif %}
+
+    {% if theme.styling.sliders.bullet_points.active.bullet_shape == 'circle' || theme.styling.sliders.bullet_points.active.bullet_shape == 'square' %}
+    --sl-pag-bullet-active-size: {{ theme.styling.sliders.bullet_points.active.bullet_square_circle }}px;
+        {% if theme.styling.sliders.bullet_points.active.bullet_square_circle > theme.styling.sliders.bullet_points.inactive.bullet_square_circle %}
+        --sl-pag-height: {{ theme.styling.sliders.bullet_points.active.bullet_square_circle }}px;
+        {% endif %}
+    {% endif %}
+
+     --sl-pag-bullet-active-border-radius: 0px;
+    {% if theme.styling.sliders.bullet_points.active.bullet_shape == 'rect_rounded' %}
+    --sl-pag-bullet-active-border-radius: 50px;
+    {% elif theme.styling.sliders.bullet_points.active.bullet_shape == 'circle' %}
+    --sl-pag-bullet-active-border-radius: 50%;
+    {% endif %}
+
+    {# 
+    * Menu Dot
+    #}
+    
+    {% if theme.styling.menu_tags.dot.pos_z %}
+    --md-pos-z: -1;
+    {% else %}
+    --md-pos-z: 0;
+    {% endif %}
+    --clr-md:                   {{ theme.styling.menu_tags.dot.color.color }};
+    --clr-md-rgb:               {{ theme.styling.menu_tags.dot.color.color | convert_rgb }};
+
+    {# 
+    * Highlight Text Styles
+    #}
+
+    {% macro getHTStyle(ix, fgHTStyle) %}
+        {% if fgHTStyle.is_style_active %}
+
+            {% if fgHTStyle.text.font_family == 'inherit' %}
+            --ht-{{ ix }}-ff:                         inherit;
+            {% else %}
+            --ht-{{ ix }}-ff:                         var({{ fgHTStyle.text.font_family|default('--ff-accent') }}), {{ fallbackFF }};
+            {% endif %}
+
+            {% if fgHTStyle.text.font_weight == 'inherit' %}
+            --ht-{{ ix }}-fw:                         inherit;
+            {% else %}
+            --ht-{{ ix }}-fw:                         {{ fgHTStyle.text.font_weight }};
+            {% endif %}
+
+            --ht-{{ ix }}-tc:                         {{ fgHTStyle.text.text_case }};
+            
+            {% if fgHTStyle.text.italic %}
+            --ht-{{ ix }}-fs:                         italic;
+            {% else %}
+            --ht-{{ ix }}-fs:                         inherit;        
+            {% endif %}
+
+            {% if fgHTStyle.text.text_style == 'color' %}
+            --ht-{{ ix }}-ts-clr-lt:                  {{ fgHTStyle.text.txt_color_light.color }};
+            --ht-{{ ix }}-ts-clr-dk:                  {{ fgHTStyle.text.txt_color_dark.color }};
+            {% else %}
+            --ht-{{ ix }}-ts-clr-lt:                  inherit;
+            --ht-{{ ix }}-ts-clr-dk:                  inherit;
+            {% endif %}
+
+            {% if fgHTStyle.underline.is_underline_mark %}
+                --ht-{{ ix }}-mark-h:                     {{ fgHTStyle.underline.height }}%;
+                --ht-{{ ix }}-mark-pd-hor:                {{ fgHTStyle.underline.padding_hor }}em;
+
+                {% if fgHTStyle.underline.highlight_mark_style == 'color' %}
+                --ht-{{ ix }}-mark-clr-lt:                {{ fgHTStyle.underline.underline_mark_color_light.color }};
+                --ht-{{ ix }}-mark-clr-dk:                {{ fgHTStyle.underline.underline_mark_color_dark.color }};
+
+                {% elif fgHTStyle.underline.highlight_mark_style == 'gradient' %}
+                --ht-{{ ix }}-mark-clr-grad-1-lt:         {{ fgHTStyle.underline.highlight_mark_gradient_color_1_lt.color }};
+                --ht-{{ ix }}-mark-clr-grad-2-lt:         {{ fgHTStyle.underline.highlight_mark_gradient_color_2_lt.color }};
+                --ht-{{ ix }}-mark-clr-grad-1-dk:         {{ fgHTStyle.underline.highlight_mark_gradient_color_1_dk.color }};
+                --ht-{{ ix }}-mark-clr-grad-2-dk:         {{ fgHTStyle.underline.highlight_mark_gradient_color_2_dk.color }};
+                {% endif %}
+            {% endif %}
+
+        {% endif %} 
+    {% endmacro %}
+
+    {{ getHTStyle('01',theme.styling.text_highlights.style_01) }}
+    {{ getHTStyle('02',theme.styling.text_highlights.style_02) }}
+
+    {# 
+    * List Styles
+    #}
+
+    {# Item spacing for UL #}
+    --ul-li-spacing: {{ theme.styling.lists.bullet_points.item_spacing }}px;
+
+    {# Item spacing for OL #}
+    --ol-li-spacing: {{ theme.styling.lists.ol.item_spacing }}px;
+    
+    {# 
+    * Advanced Back to top Button
+    #}
+
+    {%- if theme.back_to_top.is_back_to_top -%}
+
+        {# Border Radius #}
+        {%- if theme.back_to_top.style.shape == 'square_rounded' -%}
+        --btt-br: {{ theme.back_to_top.style.border_radius }}px;
+        {%- elif theme.back_to_top.style.shape == 'circle' -%}
+        --btt-br: 50%;
+        {%- else -%}
+        --btt-br: 0;
+        {%- endif -%}
+
+        {# Arrow Color #}
+        --btt-clr-arrow: {{ theme.back_to_top.style.colors.arrow_color.color }};
+
+        {# Arrow Color - Hover #}
+        --btt-clr-arrow-hover: {{ theme.back_to_top.style.colors.arrow_hover_color.color }};
+
+        {# Background Color #}
+        --btt-clr-bg: {{ theme.back_to_top.style.colors.bg_color.color | convert_rgb }};
+
+        {# Background Color - Hover #}
+        --btt-clr-bg-hover: {{ theme.back_to_top.style.colors.bg_hover_color.color | convert_rgb }};
+
+        {# Border Color #}
+        --btt-clr-border: {{ theme.back_to_top.style.border_styles.border_color.color | convert_rgb }};
+
+        {# Border Color - Hover #}
+        --btt-clr-border-hover: {{ theme.back_to_top.style.border_styles.border_hover_color.color | convert_rgb }};
+        
+        {# Arrow Opacity #}
+        --btt-op-arrow: {{ theme.back_to_top.style.colors.arrow_color.opacity / 100 }};
+
+        {# Arrow Opacity - Hover #}
+        --btt-op-arrow-hover: {{ theme.back_to_top.style.colors.arrow_hover_color.opacity / 100 }};
+
+        {# Background Opacity #}
+        --btt-op-bg: {{ theme.back_to_top.style.colors.bg_color.opacity / 100 }};
+
+        {# Background Opacity - Hover #}
+        --btt-op-bg-hover: {{ theme.back_to_top.style.colors.bg_hover_color.opacity / 100 }};
+
+        {# Border Opacity #}
+        --btt-op-border: {{ theme.back_to_top.style.border_styles.border_color.opacity / 100 }};
+
+        {# Border Opacity - Hover #}
+        --btt-op-border-hover: {{ theme.back_to_top.style.border_styles.border_hover_color.opacity / 100 }};
+
+        {# Border Width #}
+        {%- if theme.back_to_top.style.border_styles.border_style == 'color' -%}
+        --btt-border-width: {{ theme.back_to_top.style.border_styles.border_width }}px;
+        {%- else -%}
+        --btt-border-width: 0;
+        {%- endif -%}
+
+    {%- endif -%}
+
+    --ts-bg-video-fade-duration: 2s;
+    --ts-duration-factor: {{ (theme.animation.general.animation_speed|default(1)) if theme.animation.general.enable_animations|default(true) else 0 }};
+
+}
+
+/* A11y: Turn off animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --ts-duration-factor: 0;
+    }
+}
